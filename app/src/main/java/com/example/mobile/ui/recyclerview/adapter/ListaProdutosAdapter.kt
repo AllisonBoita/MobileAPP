@@ -22,6 +22,8 @@ class ListaProdutosAdapter (
             descricao.text = produto.descricao
             val valor = itemView.findViewById<TextView>(R.id.valor)
             valor.text = produto.valor.toPlainString()
+            val disponivel = itemView.findViewById<TextView>(R.id.disponivel)
+            disponivel.text = produto.disponivel
         }
     }
 

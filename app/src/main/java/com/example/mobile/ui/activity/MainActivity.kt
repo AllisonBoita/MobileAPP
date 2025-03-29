@@ -22,12 +22,12 @@ class MainActivity : Activity() {
         valor.text = "19.99"*/
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = ListaProdutosAdapter(context = this, produtos = listOf(
-            Produto(nome = "Maça", descricao = "Maça Saborosa", valor = BigDecimal("19.99")),
-            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99")),
-            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99")),
-            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99")),
-            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99")),
-            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"))
+            Produto(nome = "Maça", descricao = "Maça Saborosa", valor = BigDecimal("19.99"), disponivel = "Sim"),
+            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"), disponivel = "Sim"),
+            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"), disponivel = "Não"),
+            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"), disponivel = "Sim"),
+            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"), disponivel = "Não"),
+            Produto(nome = "Laranja", descricao = "Laranja Saborosa", valor = BigDecimal("19.99"), disponivel = "Sim")
         ))
        // recyclerView.layoutManager = LinearLayoutManager(this)
     }
