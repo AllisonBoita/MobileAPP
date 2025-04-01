@@ -14,13 +14,11 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val botaoSalvar = findViewById<Button>(R.id.botao_salvar)
-        botaoSalvar.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                val campoNome = findViewById<EditText>(R.id.nome)
-                val nome = campoNome.text.toString()
-                Log.i("FormularioProduto", "onCreate: $nome")
-            }
-        })
+        botaoSalvar.setOnClickListener {
+            val campoNome = findViewById<EditText>(R.id.nome)
+            val nome = campoNome.text.toString()
+            Log.i("FormularioProduto", "onCreate: $nome")
+        }
 
 
     }
