@@ -8,6 +8,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import com.example.mobile.R
+import com.example.mobile.model.Produto
+import java.math.BigDecimal
 
 class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
 
@@ -18,6 +20,30 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
             val campoNome = findViewById<EditText>(R.id.nome)
             val nome = campoNome.text.toString()
             Log.i("FormularioProduto", "onCreate: $nome")
+            val campoDescricao = findViewById<EditText>(R.id.descricao)
+            val descricao = campoDescricao.text.toString()
+            Log.i("FormularioProduto", "onCreate: $descricao")
+            val campoValor = findViewById<EditText>(R.id.valor)
+            val valorEmTexto = campoValor.text.toString()
+            val valor =  if (valorEmTexto.isBlank()) {
+                BigDecimal.ZERO
+            } else {
+                BigDecimal(valorEmTexto)
+            }
+            Log.i("FormularioProduto", "onCreate: $valor")
+            val campoDisponivel = findViewById<EditText>(R.id.disponivel)
+            val disponivel = campoDisponivel.text.toString()
+            Log.i("FormularioProduto", "onCreate: $disponivel")
+
+            val novoProduto = Produto(
+                nome = nome,
+                descricao = descricao,
+                valor = valor,
+                disponivel = disponivel
+            )
+
+            Log.i("FormularioProduto","onCreate: $novoProduto")
+
         }
 
 

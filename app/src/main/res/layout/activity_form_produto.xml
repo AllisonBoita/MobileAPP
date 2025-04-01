@@ -42,6 +42,16 @@
             app:layout_constraintStart_toStartOf="@id/nome"
             app:layout_constraintTop_toBottomOf="@id/descricao" />
 
+        <EditText
+            android:id="@+id/disponivel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Disponivel"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@id/nome"
+            app:layout_constraintStart_toStartOf="@id/nome"
+            app:layout_constraintTop_toBottomOf="@id/valor" />
+
         <Button
             android:id="@+id/botao_salvar"
             android:layout_width="0dp"
