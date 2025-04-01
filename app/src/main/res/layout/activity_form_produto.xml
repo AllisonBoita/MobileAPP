@@ -3,14 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".ui.activity.FormProdutoActivity">
 
-    <TextView
-        android:id="@+id/formulario"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/nome"
+        android:hint="Nome"
+        android:layout_width="0dp"
+        android:layout_margin="16dp"
         android:layout_height="wrap_content"
-        android:text="Formulário de Produto"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <EditText
+        android:id="@+id/descricao"
+        android:hint="Descrição"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/nome"
+        app:layout_constraintEnd_toEndOf="@id/nome"
+        app:layout_constraintTop_toBottomOf="@id/nome" />
+    <EditText
+        android:id="@+id/valor"
+        android:hint="Valor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/nome"
+        app:layout_constraintEnd_toEndOf="@id/nome"
+        app:layout_constraintTop_toBottomOf="@id/descricao"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:layout_margin="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
