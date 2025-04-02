@@ -1,5 +1,6 @@
 package com.example.mobile.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -49,6 +50,9 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
             dao.adiciona(novoProduto)
 
             Log.i("FormularioProduto","onCreate: ${dao.buscaTodos()}")
+            val intent = Intent(this, SaveMessageActivity::class.java)
+            startActivity(intent)
+            finish()
 
         }
 

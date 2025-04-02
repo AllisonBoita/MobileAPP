@@ -17,6 +17,10 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".ui.activity.SaveMessageActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>

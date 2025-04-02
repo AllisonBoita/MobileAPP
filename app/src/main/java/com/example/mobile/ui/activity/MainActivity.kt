@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         descricao.text = "Laranja, manga e maçã"
         val valor = findViewById<TextView>(R.id.valor)
         valor.text = "19.99"*/
+
+        // recyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val dao = ProdutosDao()
         Log.i("MainActivity", "onCreate: ${dao.buscaTodos()} ")
@@ -33,7 +39,6 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             startActivity(intent)
 
         }
-        // recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
 }
