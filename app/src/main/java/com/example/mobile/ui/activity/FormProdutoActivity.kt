@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.mobile.R
 import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.model.Produto
@@ -37,22 +38,26 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
             val disponivel = campoDisponivel.text.toString()
             Log.i("FormularioProduto", "onCreate: $disponivel")
 
-            val novoProduto = Produto(
-                nome = nome,
-                descricao = descricao,
-                valor = valor,
-                disponivel = disponivel
-            )
+            if (nome.isBlank() || descricao.isBlank() || valorEmTexto.isBlank() || disponivel.isBlank()){
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
+            } else {
+                val novoProduto = Produto(
+                    nome = nome,
+                    descricao = descricao,
+                    valor = valor,
+                    disponivel = disponivel
+                )
 
-            Log.i("FormularioProduto","onCreate: $novoProduto")
+                Log.i("FormularioProduto","onCreate: $novoProduto")
 
-            val dao = ProdutosDao()
-            dao.adiciona(novoProduto)
+                val dao = ProdutosDao()
+                dao.adiciona(novoProduto)
 
-            Log.i("FormularioProduto","onCreate: ${dao.buscaTodos()}")
-            val intent = Intent(this, SaveMessageActivity::class.java)
-            startActivity(intent)
-            finish()
+                Log.i("FormularioProduto","onCreate: ${dao.buscaTodos()}")
+                val intent = Intent(this, SaveMessageActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
 
         }
 
