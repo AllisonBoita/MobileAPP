@@ -10,22 +10,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Produto Salvo!"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.332" />
 
     <ImageView
         android:id="@+id/icon_salvo"
         android:layout_width="117dp"
         android:layout_height="109dp"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356"
-        android:focusable="true"
         app:srcCompat="@drawable/baseline_check_circle_24" />
 
 

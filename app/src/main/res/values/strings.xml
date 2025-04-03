@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Mobile</string>
+    <string name="app_name">Mobile</string> <!-- Um espaço vazio evita valores padrão -->
     <string name="lista_de_itens">Lista de itens</string>
 </resources>
