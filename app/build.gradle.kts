@@ -35,6 +35,10 @@ android {
         // Alinha o jvmTarget para Kotlin com o Java
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
