@@ -10,19 +10,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:text="Salada de frutas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Salada de frutas" />
+        app:layout_constraintStart_toEndOf="@id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/product_item_descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/product_item_nome"
+        app:layout_constraintStart_toStartOf="@id/product_item_nome"
         app:layout_constraintTop_toBottomOf="@id/product_item_nome"
         tools:text="Laranja, manga e uva" />
 
@@ -30,10 +28,8 @@
         android:id="@+id/product_item_valor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/product_item_nome"
+        app:layout_constraintStart_toStartOf="@id/product_item_nome"
         app:layout_constraintTop_toBottomOf="@id/product_item_descricao"
         tools:text="19.99" />
 
@@ -41,10 +37,8 @@
         android:id="@+id/product_item_disponivel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/product_item_nome"
+        app:layout_constraintStart_toStartOf="@id/product_item_nome"
         app:layout_constraintTop_toBottomOf="@id/product_item_valor"
         tools:text="Sim" />
 
@@ -58,7 +52,20 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/product_item_disponivel" />
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_margin="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/product_item_nome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:color/holo_blue_bright"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
