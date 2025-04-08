@@ -10,7 +10,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Salada de frutas"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        tools:text="@tools:sample/lorem/random"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,14 +24,23 @@
         android:id="@+id/product_item_descricao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:fontFamily="@font/montserrat"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/product_item_nome"
         app:layout_constraintStart_toStartOf="@id/product_item_nome"
         app:layout_constraintTop_toBottomOf="@id/product_item_nome"
-        tools:text="Laranja, manga e uva" />
+        tools:text="@tools:sample/lorem/random" />
 
     <TextView
         android:id="@+id/product_item_valor"
         android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:fontFamily="@font/montserrat"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/product_item_nome"
         app:layout_constraintStart_toStartOf="@id/product_item_nome"
@@ -40,6 +54,7 @@
         app:layout_constraintEnd_toEndOf="@id/product_item_nome"
         app:layout_constraintStart_toStartOf="@id/product_item_nome"
         app:layout_constraintTop_toBottomOf="@id/product_item_valor"
+        android:layout_marginBottom="16dp"
         tools:text="Sim" />
 
     <!-- Separador -->
