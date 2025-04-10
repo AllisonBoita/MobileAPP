@@ -11,6 +11,20 @@
         android:layout_height="wrap_content"
         tools:context=".ui.activity.FormProdutoActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/activity_formulario_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/baseline_keyboard_arrow_left_24"
+            app:title="Formulário de Produto"
+            app:titleTextColor="@color/white" />
+
         <EditText
             android:id="@+id/activity_formulario_produto_nome"
             android:layout_width="0dp"
@@ -20,7 +34,7 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_toolbar" />
 
         <EditText
             android:id="@+id/activity_formulario_produto_descricao"
