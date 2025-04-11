@@ -30,19 +30,26 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/product_item" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/activity_lista_produtos_floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
         android:layout_margin="16dp"
+        android:gravity="center|end"
+        app:iconGravity="start"
+        app:iconTint="@color/white"
         app:tint="@null"
+        android:text="Novo Produto"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_add_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/baseline_add_24"
         android:backgroundTint="?attr/colorPrimary">
 
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
