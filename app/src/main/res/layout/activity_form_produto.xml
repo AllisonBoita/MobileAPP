@@ -25,46 +25,83 @@
             app:title="Formulário de Produto"
             app:titleTextColor="@color/white" />
 
-        <EditText
-            android:id="@+id/activity_formulario_produto_nome"
+        <ImageView
+            android:id="@+id/activity_formulario_produto_imagem"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:hint="Nome"
-            android:inputType="text"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@tools:sample/avatars"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_formulario_toolbar" />
 
-        <EditText
-            android:id="@+id/activity_formulario_produto_descricao"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_formulario_produto_textinputlayout_nome"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Descrição"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintStart_toStartOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_nome" />
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_imagem">
 
-        <EditText
-            android:id="@+id/activity_formulario_produto_valor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Valor"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintStart_toStartOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_descricao" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_formulario_produto_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/activity_formulario_produto_disponivel"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_formulario_produto_textinputlayout_descricao"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Disponivel"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintStart_toStartOf="@id/activity_formulario_produto_nome"
-            app:layout_constraintTop_toBottomOf="@id/activity_formulario_produto_valor" />
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_textinputlayout_nome">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_formulario_produto_descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Descrição" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_formulario_produto_textinputlayout_valor"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_textinputlayout_descricao">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_formulario_produto_valor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Valor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/activity_formulario_produto_textinputlayout_disponivel"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_textinputlayout_valor">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/activity_formulario_produto_disponivel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Disponível" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/activity_formulario_botao_salvar"
@@ -77,6 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_valor" />
+
         <!-- o Bias Define onde o botão salvar fica. 0 mais pra
             cima em relação a constraint. 1 mais pra baixo.-->
 
