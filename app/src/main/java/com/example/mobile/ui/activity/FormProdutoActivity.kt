@@ -71,7 +71,7 @@ class FormProdutoActivity : AppCompatActivity() {
         Log.i("FormularioProduto", "onCreate: $descricao")
         val campoValor = binding.activityFormularioProdutoValor
         val valorEmTexto = campoValor.text.toString()
-        val valor = if (valorEmTexto.isBlank()) {
+        val valor = if (valorEmTexto.isBlank() || valorEmTexto == ".") {
             BigDecimal.ZERO
         } else {
             BigDecimal(valorEmTexto)
