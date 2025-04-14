@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.mobile.R
 import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.databinding.ActivityFormProdutoBinding
@@ -25,6 +26,15 @@ class FormProdutoActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraBotaoSalvar()
         configuraBotaoVoltar()
+        binding.activityFormularioProdutoImagem.setOnClickListener{
+            AlertDialog.Builder(this)
+                .setView(R.layout.formulario_imagem)
+                .setPositiveButton("OK") {
+                        dialog, _ -> dialog.dismiss()
+                }
+                .setNegativeButton("Cancelar") {dialog, _ -> dialog.dismiss()}
+                .show()
+        }
     }
 
     private fun configuraBotaoVoltar() {
@@ -45,9 +55,10 @@ class FormProdutoActivity : AppCompatActivity() {
             if (produtoNovo != null) {
                 dao.adiciona(produtoNovo)
                 finish()
+                val intent = Intent(this, SaveMessageActivity::class.java)
+                startActivity(intent)
             }
-            val intent = Intent(this, SaveMessageActivity::class.java)
-            startActivity(intent)
+
         }
     }
 
