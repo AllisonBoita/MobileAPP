@@ -30,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@tools:sample/avatars"
+            app:srcCompat="@drawable/food"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_formulario_toolbar" />
@@ -113,7 +113,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_valor" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_produto_textinputlayout_disponivel" />
 
         <!-- o Bias Define onde o botão salvar fica. 0 mais pra
             cima em relação a constraint. 1 mais pra baixo.-->
