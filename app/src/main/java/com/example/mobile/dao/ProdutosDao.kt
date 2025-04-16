@@ -20,11 +20,13 @@ class ProdutosDao {
                 descricao = "Laranjas, maças e uvas",
                 valor = BigDecimal("10.93"),
                 disponivel = "Sim"
+
             ),
             Produto(nome = "Pack de bebida",
                 descricao = "Large Beer",
                 valor = BigDecimal("19.90"),
-                disponivel = "Não")
+                disponivel = "Não"
+            )
         )
     }
 
