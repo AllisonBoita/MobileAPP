@@ -8,10 +8,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import coil.load
 import com.example.mobile.R
 import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.databinding.ActivityFormProdutoBinding
 import com.example.mobile.databinding.ActivityListaProdutosBinding
+import com.example.mobile.databinding.FormularioImagemBinding
 import com.example.mobile.model.Produto
 import java.math.BigDecimal
 
@@ -21,16 +23,25 @@ class FormProdutoActivity : AppCompatActivity() {
         ActivityFormProdutoBinding.inflate(layoutInflater)
     }
 
+    private var url: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         configuraBotaoSalvar()
         configuraBotaoVoltar()
         binding.activityFormularioProdutoImagem.setOnClickListener{
+            val bindingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
+            bindingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener{
+                url = bindingFormularioImagem.formularioImagemUrl.text.toString()
+                bindingFormularioImagem.formularioImagemImageView.load(url)
+            }
+
             AlertDialog.Builder(this)
-                .setView(R.layout.formulario_imagem)
-                .setPositiveButton("OK") {
-                        dialog, _ -> dialog.dismiss()
+                .setView(bindingFormularioImagem.root)
+                .setPositiveButton("OK") { dialog, _ ->
+                    val url = bindingFormularioImagem.formularioImagemUrl.text.toString()
+                    binding.activityFormularioProdutoImagem.load(url)
                 }
                 .setNegativeButton("Cancelar") {dialog, _ -> dialog.dismiss()}
                 .show()
@@ -83,7 +94,7 @@ class FormProdutoActivity : AppCompatActivity() {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             return null
         } else {
-            return Produto(nome, descricao, valor, disponivel)
+            return Produto(nome, descricao, valor, disponivel, imagem = url)
         }
 
     }

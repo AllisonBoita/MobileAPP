@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.mobile.R
 import com.example.mobile.databinding.ProductItemBinding
 import com.example.mobile.model.Produto
@@ -32,6 +33,7 @@ class ListaProdutosAdapter (
             valor.text = valorEmMoeda
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
+            binding.imageView.load(produto.imagem)
         }
 
         private fun formataValorEmMoedaBrasileira(valor: BigDecimal): String {
