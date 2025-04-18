@@ -1,6 +1,7 @@
 package com.example.mobile.ui.recyclerview.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import coil.load
 import com.example.mobile.R
 import com.example.mobile.databinding.ProductItemBinding
 import com.example.mobile.model.Produto
+import com.example.mobile.ui.activity.FormProdutoActivity
 import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.Locale
@@ -34,6 +36,16 @@ class ListaProdutosAdapter (
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
 
+            // Configura o clique no item do card
+            binding.containerCard.setOnClickListener {
+                val intent = Intent(binding.root.context, FormProdutoActivity::class.java).apply {
+                    putExtra("PRODUTO_ID", produto.nome)
+                }
+                binding.root.context.startActivity(intent)
+            }
+
+            //TODO("DE MOMENTO SE EU CLICO ELE ABRE, MAS ADICIONA OUTRO SE SALVO")
+
             /*if (!produto.imagem.isNullOrBlank()) {
                 binding.imageView.visibility = View.VISIBLE
                 binding.imageView.load(produto.imagem) {
@@ -47,9 +59,12 @@ class ListaProdutosAdapter (
 
             binding.imageView.visibility = View.VISIBLE
             binding.imageView.load(produto.imagem) {
-                fallback(R.drawable.erro) // aparece se for null ou blank
-                error(R.drawable.erro)    // aparece se der erro no carregamento
+                fallback(R.drawable.imagem_padrao) // aparece se for null ou blank
+                error(R.drawable.imagem_padrao)    // aparece se der erro no carregamento
             }
+
+            //TODO("ADICIONAR FORMA DE CLICAR NO CARD E CONSEGUIR CARREGAR IMAGEM COM ELE JÁ CRIADO")
+
         }
 
         private fun formataValorEmMoedaBrasileira(valor: BigDecimal): String {
@@ -62,6 +77,7 @@ class ListaProdutosAdapter (
         val inflater = LayoutInflater.from(context)
         val binding = ProductItemBinding.inflate(inflater, parent, false)
         return ViewHolder(binding)
+
     }
 
     override fun getItemCount(): Int = produtos.size
