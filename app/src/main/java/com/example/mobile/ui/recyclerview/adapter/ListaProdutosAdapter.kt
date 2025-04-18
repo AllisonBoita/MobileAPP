@@ -34,17 +34,21 @@ class ListaProdutosAdapter (
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
 
-            if (!produto.imagem.isNullOrBlank()) {
+            /*if (!produto.imagem.isNullOrBlank()) {
                 binding.imageView.visibility = View.VISIBLE
-                binding.imageView.load(produto.imagem)
+                binding.imageView.load(produto.imagem) {
+                    fallback(R.drawable.erro) // se a imagem for null
+                    error(R.drawable.erro) // se falhar o carregamento
+                    placeholder(R.drawable.placeholder) // opcional
+                }
             } else {
                 binding.imageView.visibility = View.GONE
-            }
+            }*/
 
-
+            binding.imageView.visibility = View.VISIBLE
             binding.imageView.load(produto.imagem) {
-                fallback(R.drawable.erro)
-                error(R.drawable.erro)
+                fallback(R.drawable.erro) // aparece se for null ou blank
+                error(R.drawable.erro)    // aparece se der erro no carregamento
             }
         }
 

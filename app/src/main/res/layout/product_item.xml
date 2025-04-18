@@ -87,7 +87,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/barrierStart"
-            app:srcCompat="@drawable/food" />
+            app:srcCompat="@drawable/erro" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
