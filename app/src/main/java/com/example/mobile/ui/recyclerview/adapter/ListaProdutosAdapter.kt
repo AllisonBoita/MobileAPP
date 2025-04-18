@@ -33,7 +33,19 @@ class ListaProdutosAdapter (
             valor.text = valorEmMoeda
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
-            binding.imageView.load(produto.imagem)
+
+            if (!produto.imagem.isNullOrBlank()) {
+                binding.imageView.visibility = View.VISIBLE
+                binding.imageView.load(produto.imagem)
+            } else {
+                binding.imageView.visibility = View.GONE
+            }
+
+
+            binding.imageView.load(produto.imagem) {
+                fallback(R.drawable.erro)
+                error(R.drawable.erro)
+            }
         }
 
         private fun formataValorEmMoedaBrasileira(valor: BigDecimal): String {
