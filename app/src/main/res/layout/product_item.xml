@@ -11,6 +11,9 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_card"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -25,7 +28,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/imageView"
+            app:layout_constraintStart_toEndOf="@id/barrierStart"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
@@ -67,23 +70,27 @@
             app:layout_constraintTop_toBottomOf="@id/product_item_valor"
             tools:text="Sim" />
 
-      <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLine"
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3" />
+            app:barrierDirection="end"
+            app:barrierAllowsGoneWidgets="true"
+            app:constraint_referenced_ids="imageView" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.3"
+            android:layout_margin="8dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guideLine"
-            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/food" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/barrierStart"
+            app:srcCompat="@drawable/erro" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,4 +53,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation("io.coil-kt:coil:1.2.2")
 
+
 }
