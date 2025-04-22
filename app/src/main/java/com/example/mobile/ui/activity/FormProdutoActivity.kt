@@ -16,6 +16,7 @@ import com.example.mobile.databinding.ActivityListaProdutosBinding
 import com.example.mobile.databinding.FormularioImagemBinding
 import com.example.mobile.extensions.tentaCarregarImagem
 import com.example.mobile.model.Produto
+import com.example.mobile.ui.dialog.FormularioImagemDialog
 import java.math.BigDecimal
 
 class FormProdutoActivity : AppCompatActivity() {
@@ -31,21 +32,8 @@ class FormProdutoActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraBotaoSalvar()
         configuraBotaoVoltar()
-        binding.activityFormularioProdutoImagem.setOnClickListener{
-            val bindingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
-            bindingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener{
-                url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                bindingFormularioImagem.formularioImagemImageView.tentaCarregarImagem(url)
-            }
-
-            AlertDialog.Builder(this)
-                .setView(bindingFormularioImagem.root)
-                .setPositiveButton("OK") { dialog, _ ->
-                    val url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                    binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
-                }
-                .setNegativeButton("Cancelar") {dialog, _ -> dialog.dismiss()}
-                .show()
+        binding.activityFormularioProdutoImagem.setOnClickListener {
+            FormularioImagemDialog(this).mostra()
         }
     }
 
