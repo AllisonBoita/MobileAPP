@@ -14,6 +14,7 @@ import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.databinding.ActivityFormProdutoBinding
 import com.example.mobile.databinding.ActivityListaProdutosBinding
 import com.example.mobile.databinding.FormularioImagemBinding
+import com.example.mobile.extensions.tentaCarregarImagem
 import com.example.mobile.model.Produto
 import java.math.BigDecimal
 
@@ -34,16 +35,14 @@ class FormProdutoActivity : AppCompatActivity() {
             val bindingFormularioImagem = FormularioImagemBinding.inflate(layoutInflater)
             bindingFormularioImagem.formularioImagemBotaoCarregar.setOnClickListener{
                 url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                bindingFormularioImagem.formularioImagemImageView.load(url) {
-                    placeholder(R.drawable.placeholder)
-                }
+                bindingFormularioImagem.formularioImagemImageView.tentaCarregarImagem(url)
             }
 
             AlertDialog.Builder(this)
                 .setView(bindingFormularioImagem.root)
                 .setPositiveButton("OK") { dialog, _ ->
                     val url = bindingFormularioImagem.formularioImagemUrl.text.toString()
-                    binding.activityFormularioProdutoImagem.load(url)
+                    binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
                 }
                 .setNegativeButton("Cancelar") {dialog, _ -> dialog.dismiss()}
                 .show()

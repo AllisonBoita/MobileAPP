@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.mobile.R
 import com.example.mobile.databinding.ProductItemBinding
+import com.example.mobile.extensions.tentaCarregarImagem
 import com.example.mobile.model.Produto
 import com.example.mobile.ui.activity.FormProdutoActivity
 import java.math.BigDecimal
@@ -58,10 +59,7 @@ class ListaProdutosAdapter (
             }*/
 
             binding.imageView.visibility = View.VISIBLE
-            binding.imageView.load(produto.imagem) {
-                fallback(R.drawable.imagem_padrao) // aparece se for null ou blank
-                error(R.drawable.imagem_padrao)    // aparece se der erro no carregamento
-            }
+            binding.imageView.tentaCarregarImagem(produto.imagem)
 
             //TODO("ADICIONAR FORMA DE CLICAR NO CARD E CONSEGUIR CARREGAR IMAGEM COM ELE JÁ CRIADO")
 
