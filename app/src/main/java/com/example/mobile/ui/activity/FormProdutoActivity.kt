@@ -33,7 +33,7 @@ class FormProdutoActivity : AppCompatActivity() {
         configuraBotaoSalvar()
         configuraBotaoVoltar()
         binding.activityFormularioProdutoImagem.setOnClickListener {
-            FormularioImagemDialog(this).mostra{
+            FormularioImagemDialog(this).mostra(url){
                 imagem ->
                 url = imagem
                 binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
