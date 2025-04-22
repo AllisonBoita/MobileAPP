@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navigationIcon="@drawable/baseline_keyboard_arrow_left_24"
-            app:title="Formulário de Produto"
+            app:title="Cadastro de Produto"
             app:titleTextColor="@color/white" />
 
         <ImageView

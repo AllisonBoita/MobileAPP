@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/montserrat"
-            android:textColor="@color/green"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/product_item_nome"
