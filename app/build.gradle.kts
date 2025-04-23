@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android") // Aqui o plugin Kotlin é ativado para o módulo
+    id("kotlin-parcelize")
 }
 
 android {

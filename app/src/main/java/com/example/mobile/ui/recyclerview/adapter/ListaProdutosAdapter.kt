@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.mobile.R
 import com.example.mobile.databinding.ProductItemBinding
+import com.example.mobile.extensions.formataParaMoedaBrasileira
 import com.example.mobile.extensions.tentaCarregarImagem
 import com.example.mobile.model.Produto
+import com.example.mobile.ui.activity.DetalheProdutoActivity
 import com.example.mobile.ui.activity.FormProdutoActivity
 import java.math.BigDecimal
 import java.text.NumberFormat
@@ -19,31 +21,39 @@ import java.util.Locale
 
 class ListaProdutosAdapter (
     private val context: Context,
-    produtos: List<Produto>
+    produtos: List<Produto>,
+    var quandoClicaNoItem: (produto: Produto) -> Unit = {}
+
 ): RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
     private val produtos = produtos.toMutableList()
 
-    class ViewHolder(private val binding: ProductItemBinding):
+    inner class ViewHolder(private val binding: ProductItemBinding):
         RecyclerView.ViewHolder(binding.root){
+
+        private lateinit var produto: Produto
+
+        init {
+            // implementação do listener do adapter
+            itemView.setOnClickListener {
+                // verificação da existência de valores em property lateinit
+                if (::produto.isInitialized) {
+                    quandoClicaNoItem(produto)
+                }
+            }
+        }
+
         fun vincula(produto: Produto) {
+            this.produto = produto
             val nome = binding.productItemNome
             nome.text = produto.nome
             val descricao = binding.productItemDescricao
             descricao.text = produto.descricao
             val valor = binding.productItemValor
-            val valorEmMoeda: String = formataValorEmMoedaBrasileira(produto.valor)
+            val valorEmMoeda: String = produto.valor.formataParaMoedaBrasileira()
             valor.text = valorEmMoeda
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
-
-            // Configura o clique no item do card
-            binding.containerCard.setOnClickListener {
-                val intent = Intent(binding.root.context, FormProdutoActivity::class.java).apply {
-                    putExtra("PRODUTO_ID", produto.nome)
-                }
-                binding.root.context.startActivity(intent)
-            }
 
             //TODO("DE MOMENTO SE EU CLICO ELE ABRE, MAS ADICIONA OUTRO SE SALVO")
 
@@ -63,11 +73,6 @@ class ListaProdutosAdapter (
 
             //TODO("ADICIONAR FORMA DE CLICAR NO CARD E CONSEGUIR CARREGAR IMAGEM COM ELE JÁ CRIADO")
 
-        }
-
-        private fun formataValorEmMoedaBrasileira(valor: BigDecimal): String {
-            val formatadorValor: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
-            return formatadorValor.format(valor)
         }
     }
 
