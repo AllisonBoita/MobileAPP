@@ -61,6 +61,7 @@
             android:padding="8dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
+            android:background="@color/colorOnPrimary"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="24sp"
             android:textStyle="bold"
