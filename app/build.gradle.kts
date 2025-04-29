@@ -2,7 +2,6 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android") // Aqui o plugin Kotlin é ativado para o módulo
     id("kotlin-parcelize")
-    id("kotlin-kapt")
 }
 
 android {
@@ -47,7 +46,7 @@ dependencies {
     val room_version = "2.7.1"
 
     implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation ("org.jetbrains.kotlin:kotlin-stdlib:2.1.20")
