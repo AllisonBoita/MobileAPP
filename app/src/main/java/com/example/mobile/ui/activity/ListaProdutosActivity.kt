@@ -38,20 +38,21 @@ class ListaProdutosActivity : AppCompatActivity() {
             .build()
 
         val produtoDao = db.produtoDao()
-        produtoDao.salva(
+        /*produtoDao.salva(
             Produto(
-                nome = "Teste de produto 1",
+                nome = "Teste de produto 3",
                 descricao = "Teste desc 1",
                 valor = BigDecimal("10.0"),
                 disponivel = "Sim"
             )
-        )
+        )*/
+        adapter.atualiza(produtoDao.buscaTodos())
 
     }
 
     override fun onResume() {
         super.onResume()
-        adapter.atualiza(dao.buscaTodos())
+        //adapter.atualiza(dao.buscaTodos())
     }
 
     private fun configuraFloatActionButton() {
