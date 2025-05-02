@@ -5,11 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
 import com.example.mobile.R
 import com.example.mobile.dao.ProdutosDao
+import com.example.mobile.database.AppDatabase
 import com.example.mobile.databinding.ActivityListaProdutosBinding
+import com.example.mobile.model.Produto
 import com.example.mobile.ui.recyclerview.adapter.ListaProdutosAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.math.BigDecimal
 
 
 class ListaProdutosActivity : AppCompatActivity() {
@@ -25,6 +29,23 @@ class ListaProdutosActivity : AppCompatActivity() {
         setContentView(binding.root)
         configuraRecyclerView()
         configuraFloatActionButton()
+
+        val db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java,
+            "orgs.db"
+        ).allowMainThreadQueries()
+            .build()
+
+        val produtoDao = db.produtoDao()
+        produtoDao.salva(
+            Produto(
+                nome = "Teste de produto 1",
+                descricao = "Teste desc 1",
+                valor = BigDecimal("10.0"),
+                disponivel = "Sim"
+            )
+        )
 
     }
 
