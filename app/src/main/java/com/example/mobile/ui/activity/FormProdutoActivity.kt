@@ -87,7 +87,7 @@ class FormProdutoActivity : AppCompatActivity() {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             return null
         } else {
-            return Produto(nome, descricao, valor, disponivel, imagem = url)
+            return Produto(nome = nome, descricao = descricao, valor = valor, disponivel = disponivel, imagem = url)
         }
 
     }
