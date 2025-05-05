@@ -8,9 +8,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.room.Room
 import coil.load
 import com.example.mobile.R
 import com.example.mobile.dao.ProdutosDao
+import com.example.mobile.database.AppDatabase
 import com.example.mobile.databinding.ActivityFormProdutoBinding
 import com.example.mobile.databinding.ActivityListaProdutosBinding
 import com.example.mobile.databinding.FormularioImagemBinding
@@ -53,11 +55,13 @@ class FormProdutoActivity : AppCompatActivity() {
 
     private fun configuraBotaoSalvar() {
         val botaoSalvar = binding.activityFormularioBotaoSalvar
-        val dao = ProdutosDao()
+        val db = AppDatabase.instancia(this)
+        val produtoDao = db.produtoDao()
+
         botaoSalvar.setOnClickListener {
             val produtoNovo = criaProduto()
             if (produtoNovo != null) {
-                dao.adiciona(produtoNovo)
+                produtoDao.salva(produtoNovo)
                 finish()
                 val intent = Intent(this, SaveMessageActivity::class.java)
                 startActivity(intent)

@@ -30,6 +30,14 @@ class ListaProdutosActivity : AppCompatActivity() {
         configuraRecyclerView()
         configuraFloatActionButton()
 
+        val db = AppDatabase.instancia(this)
+        val produtoDao = db.produtoDao()
+        adapter.atualiza(produtoDao.buscaTodos())
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         val db = Room.databaseBuilder(
             this,
             AppDatabase::class.java,
@@ -38,21 +46,7 @@ class ListaProdutosActivity : AppCompatActivity() {
             .build()
 
         val produtoDao = db.produtoDao()
-        /*produtoDao.salva(
-            Produto(
-                nome = "Teste de produto 3",
-                descricao = "Teste desc 1",
-                valor = BigDecimal("10.0"),
-                disponivel = "Sim"
-            )
-        )*/
         adapter.atualiza(produtoDao.buscaTodos())
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        //adapter.atualiza(dao.buscaTodos())
     }
 
     private fun configuraFloatActionButton() {
