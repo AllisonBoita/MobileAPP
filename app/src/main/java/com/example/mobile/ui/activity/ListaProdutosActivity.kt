@@ -2,24 +2,16 @@ package com.example.mobile.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
-import com.example.mobile.R
-import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.database.AppDatabase
 import com.example.mobile.databinding.ActivityListaProdutosBinding
-import com.example.mobile.model.Produto
 import com.example.mobile.ui.recyclerview.adapter.ListaProdutosAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.math.BigDecimal
 
 
 class ListaProdutosActivity : AppCompatActivity() {
 
-    private val dao = ProdutosDao()
-    private val adapter = ListaProdutosAdapter(context = this, produtos = dao.buscaTodos())
+    private val adapter = ListaProdutosAdapter(context = this, produtos = emptyList())
     private val binding by lazy {
         ActivityListaProdutosBinding.inflate(layoutInflater)
     }

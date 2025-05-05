@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.room.Room
 import coil.load
 import com.example.mobile.R
-import com.example.mobile.dao.ProdutosDao
 import com.example.mobile.database.AppDatabase
 import com.example.mobile.databinding.ActivityFormProdutoBinding
 import com.example.mobile.databinding.ActivityListaProdutosBinding
