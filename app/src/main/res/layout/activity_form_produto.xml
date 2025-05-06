@@ -11,20 +11,6 @@
         android:layout_height="wrap_content"
         tools:context=".ui.activity.FormProdutoActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/activity_formulario_toolbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:navigationIcon="@drawable/baseline_keyboard_arrow_left_24"
-            app:title="Cadastro de Produto"
-            app:titleTextColor="@color/white" />
-
         <ImageView
             android:id="@+id/activity_formulario_produto_imagem"
             android:layout_width="0dp"
@@ -32,7 +18,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_formulario_toolbar"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/imagem_padrao" />
 
         <com.google.android.material.textfield.TextInputLayout

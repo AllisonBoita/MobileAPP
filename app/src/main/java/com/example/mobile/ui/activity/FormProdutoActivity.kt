@@ -32,7 +32,6 @@ class FormProdutoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         configuraBotaoSalvar()
-        configuraBotaoVoltar()
         binding.activityFormularioProdutoImagem.setOnClickListener {
             FormularioImagemDialog(this).mostra(url){
                 imagem ->
@@ -40,16 +39,6 @@ class FormProdutoActivity : AppCompatActivity() {
                 binding.activityFormularioProdutoImagem.tentaCarregarImagem(url)
             }
         }
-    }
-
-    private fun configuraBotaoVoltar() {
-        setSupportActionBar(binding.activityFormularioToolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(true) // se quiser esconder o título padrão
-
-        binding.activityFormularioToolbar.setNavigationOnClickListener {
-            finish() // ou Intent pra ListaProdutoActivity, se quiser forçar isso
-        }
-
     }
 
     private fun configuraBotaoSalvar() {

@@ -26,9 +26,8 @@
         </activity>
         <activity
             android:name=".ui.activity.DetalheProdutoActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="true"/>
-
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"/>
         <activity
             android:name=".ui.activity.ListaProdutosActivity"
             android:screenOrientation="portrait"
