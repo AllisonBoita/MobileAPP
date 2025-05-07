@@ -73,20 +73,7 @@ class ListaProdutosAdapter (
             valor.text = valorEmMoeda
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
-
-            //TODO("DE MOMENTO SE EU CLICO ELE ABRE, MAS ADICIONA OUTRO SE SALVO")
-
-            /*if (!produto.imagem.isNullOrBlank()) {
-                binding.imageView.visibility = View.VISIBLE
-                binding.imageView.load(produto.imagem) {
-                    fallback(R.drawable.erro) // se a imagem for null
-                    error(R.drawable.erro) // se falhar o carregamento
-                    placeholder(R.drawable.placeholder) // opcional
-                }
-            } else {
-                binding.imageView.visibility = View.GONE
-            }*/
-
+            
             binding.imageView.visibility = View.VISIBLE
             binding.imageView.tentaCarregarImagem(produto.imagem)
 
