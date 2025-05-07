@@ -2,9 +2,12 @@ package com.example.mobile.ui.recyclerview.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -19,17 +22,22 @@ import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.Locale
 
+private const val TAG = "ListaProduto"
+
 class ListaProdutosAdapter (
     private val context: Context,
     produtos: List<Produto> = emptyList(),
-    var quandoClicaNoItem: (produto: Produto) -> Unit = {}
+    var quandoClicaNoItem: (produto: Produto) -> Unit = {},
+    var quandoClicaEmEditar: (produto: Produto) -> Unit = {},
+    var quandoClicaEmRemover: (produto: Produto) -> Unit = {}
+
 
 ): RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
     private val produtos = produtos.toMutableList()
 
     inner class ViewHolder(private val binding: ProductItemBinding):
-        RecyclerView.ViewHolder(binding.root){
+        RecyclerView.ViewHolder(binding.root), PopupMenu.OnMenuItemClickListener {
 
         private lateinit var produto: Produto
 
@@ -40,6 +48,17 @@ class ListaProdutosAdapter (
                 if (::produto.isInitialized) {
                     quandoClicaNoItem(produto)
                 }
+            }
+
+            itemView.setOnLongClickListener {
+                PopupMenu(context, itemView).apply {
+                    menuInflater.inflate(
+                        R.menu.menu_detalhes_produto,
+                        menu
+                    )
+                    setOnMenuItemClickListener(this@ViewHolder)
+                }.show()
+                true
             }
         }
 
@@ -73,6 +92,24 @@ class ListaProdutosAdapter (
 
             //TODO("ADICIONAR FORMA DE CLICAR NO CARD E CONSEGUIR CARREGAR IMAGEM COM ELE JÁ CRIADO")
 
+        }
+
+        override fun onMenuItemClick(item: MenuItem?): Boolean {
+            item?.let {
+                when (item.itemId) {
+                    R.id.menu_detalhes_produto -> {
+                        quandoClicaEmEditar(produto)
+                        Log.i(TAG, "onMenuItemClick: editar")
+                    }
+                    R.id.menu_detalhes_produto_remover -> {
+                        quandoClicaEmRemover
+                        Log.i(TAG, "onMenuItemClick: remover")
+                    }
+
+                    else -> {}
+                }
+            }
+            return true
         }
     }
 
