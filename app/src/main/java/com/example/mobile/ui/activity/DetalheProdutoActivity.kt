@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mobile.R
+import com.example.mobile.database.AppDatabase
 import com.example.mobile.databinding.ActivityDetalheProdutoBinding
 import com.example.mobile.extensions.formataParaMoedaBrasileira
 import com.example.mobile.extensions.tentaCarregarImagem
@@ -15,6 +16,7 @@ private const val TAG = "DetalhesProduto"
 
 class DetalheProdutoActivity : AppCompatActivity() {
 
+    private lateinit var produto: Produto
     private val binding by lazy {
         ActivityDetalheProdutoBinding.inflate(layoutInflater)
     }
@@ -31,12 +33,19 @@ class DetalheProdutoActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.menu_detalhes_produto_remover -> {
-                Log.i(TAG, "onOptionsItemSelected: remover ")
-            }
-            R.id.menu_detalhes_produto -> {
-                Log.i(TAG, "onOptionsItemSelected: editar")
+        if (::produto.isInitialized) {
+            val db = AppDatabase.instancia(this)
+            val produtoDao = db.produtoDao()
+            when(item.itemId){
+                R.id.menu_detalhes_produto_remover -> {
+                    Log.i(TAG, "onOptionsItemSelected: remover ")
+                    produtoDao.deletar(produto)
+                    finish()
+                    return true
+                }
+                R.id.menu_detalhes_produto -> {
+                    Log.i(TAG, "onOptionsItemSelected: editar")
+                }
             }
         }
         return super.onOptionsItemSelected(item)
@@ -46,6 +55,7 @@ class DetalheProdutoActivity : AppCompatActivity() {
         // tentativa de buscar o produto se ele existir,
         // caso contrário, finalizar a Activity
         intent.getParcelableExtra<Produto>(CHAVE_PRODUTO)?.let { produtoCarregado ->
+            produto = produtoCarregado
             preencheCampos(produtoCarregado)
         } ?: finish()
     }
