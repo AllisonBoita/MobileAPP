@@ -73,7 +73,7 @@ class ListaProdutosAdapter (
             valor.text = valorEmMoeda
             val disponivel = binding.productItemDisponivel
             disponivel.text = produto.disponivel
-            
+
             binding.imageView.visibility = View.VISIBLE
             binding.imageView.tentaCarregarImagem(produto.imagem)
 
