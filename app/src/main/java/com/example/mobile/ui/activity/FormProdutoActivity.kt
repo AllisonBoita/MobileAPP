@@ -59,12 +59,15 @@ class FormProdutoActivity : AppCompatActivity() {
         botaoSalvar.setOnClickListener {
             val produtoNovo = criaProduto()
             if (produtoNovo != null) {
-                produtoDao.salva(produtoNovo)
-                finish()
-                val intent = Intent(this, SaveMessageActivity::class.java)
-                startActivity(intent)
+                if (idProduto > 0) {
+                    produtoDao.altera(produtoNovo)
+                } else {
+                    produtoDao.salva(produtoNovo)
+                }
             }
-
+            finish()
+            val intent = Intent(this, SaveMessageActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -89,7 +92,7 @@ class FormProdutoActivity : AppCompatActivity() {
             Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_LONG).show()
             return null
         } else {
-            return Produto(nome = nome, descricao = descricao, valor = valor, disponivel = disponivel, imagem = url)
+            return Produto(id = idProduto, nome = nome, descricao = descricao, valor = valor, disponivel = disponivel, imagem = url)
         }
 
     }
