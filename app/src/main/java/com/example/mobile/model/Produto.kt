@@ -11,7 +11,6 @@ import java.net.URL
 @Parcelize
 data class Produto (
     @PrimaryKey(autoGenerate = true) val id: Long = 0L,
-    val url: String,
     val nome: String,
     val descricao: String,
     val valor: BigDecimal,
