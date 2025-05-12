@@ -43,6 +43,7 @@ class FormProdutoActivity : AppCompatActivity() {
         intent.getParcelableExtra<Produto>(CHAVE_PRODUTO)?.let { produtoCarregado ->
             title = "Alterar Produto"
             idProduto = produtoCarregado.id
+            url = produtoCarregado.url
             binding.activityFormularioProdutoImagem.tentaCarregarImagem(produtoCarregado.imagem)
             binding.activityFormularioProdutoNome.setText(produtoCarregado.nome)
             binding.activityFormularioProdutoDescricao.setText(produtoCarregado.descricao)
